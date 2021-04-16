@@ -1,0 +1,179 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-image:url(images/victrola-record-players-bIufbzOTla0-unsplash.jpg);
+  background-color: #ffe6cc;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  position: relative;
+}
+
+.music-container{
+  background: rgb(131,64,0);
+  background: linear-gradient(124deg, rgba(131,64,0,1) 3%, rgba(102,51,0,1) 46%, rgba(45,22,0,1) 100%);
+  width: 43%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-55%,150%);
+  padding:55px 50px 50px 50px;
+  border-radius: 15px;
+  z-index: 99;
+  border: solid 1px rgba(45,22,0,1);
+}
+
+.cover-img {
+  position: relative;
+}
+.cover-img img{
+  width: 400px;
+  height: auto;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+  z-index: 0;
+}
+
+/* js class */
+.music-container.play .cover-img img{
+  transform: translateY(-113.5%);
+  opacity: 1;
+  
+}
+
+.record-player img{
+  border-radius: 10px;
+  object-fit: cover;
+  width: 200px;
+  position: absolute;
+  bottom: 80px;
+  right: 100px;
+  animation:rotate 3s linear infinite;
+  animation-play-state: paused;
+  z-index: 999;
+}
+
+/* js class */
+.music-container.play .record-player img{
+  animation-play-state: running;
+}
+
+@keyframes rotate{
+  form{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+.navigation-btn{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+}
+
+.navigation-btn .btn{
+  background-color: transparent;
+  color: #000;
+  border: 0;
+  padding: 10px;
+  margin: 0 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.navigation-btn .btn:focus{
+  outline: 0;
+}
+
+.progress-container{
+  width: 50%;
+  background-color: #fff2e6;
+  height:4px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+.progress{
+  background-color: #1a0d00;
+  height: 4px;
+  width: 0%;
+  border-radius: 5px;
+  transition: width .1s linear;
+}
+
+.song-name{
+  padding-bottom: 15px;
+  font-size: 25px;
+  margin-top: 5px;
+}
+
+@media (min-width:1790px) {
+  body{
+    background-image: none;
+    background-color: #ffe6cc;
+  }
+}
+
+@media (max-width:1678px){
+  body{
+    background-image: none;
+    background-color: #ffe6cc;
+  }
+}
+
+@media (max-width:1600px){
+  .record-player img{
+    right: 50px;
+  }
+}
+
+@media (max-width:1139px){
+  .cover-img img{
+    width: 200px;
+  }
+}
+
+@media (max-width:1272px){
+  .record-player img{
+    right: 10px;
+    bottom: 120px;
+    width: 170px;
+  }
+
+  .cover-img img{
+    width: 300px;
+  }
+}
+
+@media (max-width:1006px){
+  .record-player img{
+    right: -10px;
+    bottom: 140px;
+    width: 150px;
+  }
+}
+
+@media (max-width:859px){
+  .record-player img{
+    right: -10px;
+    top: -70px;
+    width: 120px;
+  }
+
+  .cover-img img{
+    width: 200px;
+    right: 0;
+  }
+}
